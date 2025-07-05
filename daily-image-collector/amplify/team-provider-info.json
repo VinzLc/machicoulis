@@ -1,0 +1,54 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-machicoulis-dev-6b5a5-authRole",
+      "UnauthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-dev-6b5a5-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-dev-6b5a5-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-machicoulis-dev-6b5a5-deployment",
+      "UnauthRoleName": "amplify-machicoulis-dev-6b5a5-unauthRole",
+      "StackName": "amplify-machicoulis-dev-6b5a5",
+      "StackId": "arn:aws:cloudformation:us-east-1:985883770223:stack/amplify-machicoulis-dev-6b5a5/2c282970-58e5-11f0-8cb0-0affda18436f",
+      "AmplifyAppId": "d2ikcysz73awk3"
+    },
+    "categories": {
+      "auth": {
+        "machicoulisc5a9967b": {}
+      },
+      "function": {
+        "machicoulisf7601f2b": {}
+      }
+    }
+  },
+  "machicouli": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-machicoulis-machicouli-7d6ba-authRole",
+      "UnauthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-machicouli-7d6ba-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-machicouli-7d6ba-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-machicoulis-machicouli-7d6ba-deployment",
+      "UnauthRoleName": "amplify-machicoulis-machicouli-7d6ba-unauthRole",
+      "StackName": "amplify-machicoulis-machicouli-7d6ba",
+      "StackId": "arn:aws:cloudformation:us-east-1:985883770223:stack/amplify-machicoulis-machicouli-7d6ba/5a174710-58e7-11f0-9d58-12e4ebc73c53",
+      "AmplifyAppId": "d2ikcysz73awk3"
+    },
+    "categories": {
+      "auth": {
+        "machicoulisc5a9967b": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2ikcysz73awk3",
+          "type": "manual"
+        },
+        "S3AndCloudFront": {}
+      },
+      "api": {
+        "machicoulis": {}
+      },
+      "storage": {
+        "images": {}
+      }
+    }
+  }
+}

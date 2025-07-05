@@ -1,0 +1,156 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "name": "Didi et Mine Mine",
+      "rarity": "Common",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/didi-et-mine-mine.png",
+      "description": "ne sont-elles pas adorables ?",
+      "category": "Personnages"
+    },
+    {
+      "id": 2,
+      "name": "Mine Mine",
+      "rarity": "Common",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/mine-mine.png",
+      "description": "La petite Mine Mine dans toute sa splendeur",
+      "category": "Personnages"
+    },
+    {
+      "id": 3,
+      "name": "Vinz Puant",
+      "rarity": "Common",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/vinz-puant.png",
+      "description": "Vinz dans un moment... particulier",
+      "category": "Personnages"
+    },
+    {
+      "id": 4,
+      "name": "Les Yeux en Premier",
+      "rarity": "Common",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/les-yeux-en-premier.png",
+      "description": "Une approche visuelle unique",
+      "category": "Expressions"
+    },
+    {
+      "id": 5,
+      "name": "Sam Suédois",
+      "rarity": "Rare",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/rare/sam-suedois.png",
+      "description": "Sam dans ses aventures nordiques",
+      "category": "Personnages"
+    },
+    {
+      "id": 6,
+      "name": "Smusse Caché 1",
+      "rarity": "Rare",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/rare/smusse-cache-1.png",
+      "description": "Smusse se cache... mais où ?",
+      "category": "Mystère"
+    },
+    {
+      "id": 7,
+      "name": "Smusse Caché 2",
+      "rarity": "Rare",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/rare/smusse-cache-2.png",
+      "description": "Smusse continue sa cachette",
+      "category": "Mystère"
+    },
+    {
+      "id": 8,
+      "name": "Smusse Caché 3",
+      "rarity": "Rare",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/rare/smusse-cache-3.png",
+      "description": "La suite des aventures cachées de Smusse",
+      "category": "Mystère"
+    },
+    {
+      "id": 9,
+      "name": "Glux",
+      "rarity": "Rare",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/rare/glux.png",
+      "description": "Le mystérieux Glux fait son apparition",
+      "category": "Mystère"
+    },
+    {
+      "id": 10,
+      "name": "Smusse Tesla",
+      "rarity": "Epic",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/epic/smusse-tesla.png",
+      "description": "Smusse et ses expériences électriques",
+      "category": "Science"
+    },
+    {
+      "id": 11,
+      "name": "Smusse Cristaux 1",
+      "rarity": "Epic",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/epic/smusse-cristaux-1.png",
+      "description": "Smusse découvre des cristaux magiques",
+      "category": "Magie"
+    },
+    {
+      "id": 12,
+      "name": "Smusse Cristaux 2",
+      "rarity": "Epic",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/epic/smusse-cristaux-2.png",
+      "description": "La suite des aventures cristallines",
+      "category": "Magie"
+    },
+    {
+      "id": 13,
+      "name": "Smusse Guérison",
+      "rarity": "Epic",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/epic/smusse-guerison.png",
+      "description": "Smusse utilise ses pouvoirs de guérison",
+      "category": "Magie"
+    },
+    {
+      "id": 14,
+      "name": "Brouillus",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/brouillus.png",
+      "description": "L'énigmatique Brouillus apparaît dans la brume",
+      "category": "Légendaire"
+    },
+    {
+      "id": 15,
+      "name": "Con de Smusse",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/con-de-smusse.png",
+      "description": "Une apparition légendaire et inattendue",
+      "category": "Légendaire"
+    },
+    {
+      "id": 16,
+      "name": "Cul de Smusse",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/cul-de-smusse.png",
+      "description": "Une perspective unique sur notre héros",
+      "category": "Légendaire"
+    },
+    {
+      "id": 17,
+      "name": "Smusse Malade",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/smusse-malade.png",
+      "description": "Smusse dans un moment de vulnérabilité",
+      "category": "Émotions"
+    },
+    {
+      "id": 18,
+      "name": "Smusse Traitement",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/smusse-traitement.png",
+      "description": "Le traitement légendaire de Smusse",
+      "category": "Soins"
+    },
+    {
+      "id": 19,
+      "name": "Vinz et Smusse",
+      "rarity": "Legendary",
+      "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/legendary/vinz-et-smusse.png",
+      "description": "La rencontre légendaire entre Vinz et Smusse",
+      "category": "Épique"
+    }
+  ]
+}

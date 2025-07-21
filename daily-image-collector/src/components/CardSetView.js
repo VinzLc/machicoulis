@@ -70,21 +70,26 @@ const CardSetView = ({
       groupedByCategory[cardSet.category].push(cardSet);
     });
     
-    // Filter out categories with only 1 card and sort within categories
+    // Filter out categories with only 1 card AND categories with no discovered cards
     const filteredCategories = {};
     Object.entries(groupedByCategory).forEach(([category, cards]) => {
       if (cards.length > 1) {
-        // Sort cards within category by rarity first, then by baseId
-        const rarityOrder = { 'Common': 0, 'Rare': 1, 'Epic': 2, 'Legendary': 3 };
-        filteredCategories[category] = cards.sort((a, b) => {
-          // First sort by rarity (Legendary first, Common last)
-          const rarityComparison = rarityOrder[a.rarity] - rarityOrder[b.rarity];
-          if (rarityComparison !== 0) {
-            return rarityComparison;
-          }
-          // If same rarity, sort by baseId
-          return parseInt(a.baseId) - parseInt(b.baseId);
-        });
+        // Check if category has at least one discovered card
+        const hasDiscoveredCards = cards.some(card => card.isCollected);
+        
+        if (hasDiscoveredCards) {
+          // Sort cards within category by rarity first, then by baseId
+          const rarityOrder = { 'Common': 0, 'Rare': 1, 'Epic': 2, 'Legendary': 3 };
+          filteredCategories[category] = cards.sort((a, b) => {
+            // First sort by rarity (Legendary first, Common last)
+            const rarityComparison = rarityOrder[a.rarity] - rarityOrder[b.rarity];
+            if (rarityComparison !== 0) {
+              return rarityComparison;
+            }
+            // If same rarity, sort by baseId
+            return parseInt(a.baseId) - parseInt(b.baseId);
+          });
+        }
       }
     });
     

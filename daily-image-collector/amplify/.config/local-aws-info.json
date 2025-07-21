@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "C:\\Users\\vinzl\\.amplify\\awscloudformation\\TD2g185LFJ"
+  },
+  "machicouli": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "C:\\Users\\vinzl\\.amplify\\awscloudformation\\0ChoCcRPWW"
+  }
+}

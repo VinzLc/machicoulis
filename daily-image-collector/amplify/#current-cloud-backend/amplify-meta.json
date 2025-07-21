@@ -1,0 +1,150 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-machicoulis-machicouli-7d6ba-authRole",
+      "UnauthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-machicouli-7d6ba-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::985883770223:role/amplify-machicoulis-machicouli-7d6ba-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-machicoulis-machicouli-7d6ba-deployment",
+      "UnauthRoleName": "amplify-machicoulis-machicouli-7d6ba-unauthRole",
+      "StackName": "amplify-machicoulis-machicouli-7d6ba",
+      "StackId": "arn:aws:cloudformation:us-east-1:985883770223:stack/amplify-machicoulis-machicouli-7d6ba/5a174710-58e7-11f0-9d58-12e4ebc73c53",
+      "AmplifyAppId": "d2ikcysz73awk3"
+    }
+  },
+  "api": {
+    "machicoulis": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "machicoulisc5a9967b",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authmachicoulisc5a9967b"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "ufbzmettw5d7nlgi2sn4mkzyzu",
+        "GraphQLAPIEndpointOutput": "https://nfftlfpbbngorc6sxktd3sqz3e.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-dhsa3iddjvhnjjmpk2t2b6a4hu"
+      },
+      "lastPushTimeStamp": "2025-07-04T17:31:57.709Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-machicoulis-machicouli-7d6ba-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apimachicoulis"
+      },
+      "lastPushDirHash": "3lclqmgeFErIfSVwMcCAbYXOeiM="
+    }
+  },
+  "auth": {
+    "machicoulisc5a9967b": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-machicoulis-machicouli-7d6ba-deployment/amplify-cfn-templates/auth/machicoulisc5a9967b-cloudformation-template.json",
+        "logicalId": "authmachicoulisc5a9967b"
+      },
+      "lastPushTimeStamp": "2025-07-04T17:31:57.721Z",
+      "output": {
+        "UserPoolId": "us-east-1_z3XMeF6mh",
+        "AppClientIDWeb": "6aamnjr2uoc64ii2qkadljpfht",
+        "AppClientID": "uvvjnirs8mgi99skiqcqsepb1",
+        "IdentityPoolId": "us-east-1:d09e6c02-2807-4076-a7bd-067fb3e2a0c3",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:985883770223:userpool/us-east-1_z3XMeF6mh",
+        "IdentityPoolName": "machicoulisc5a9967b_identitypool_c5a9967b__machicouli",
+        "UserPoolName": "machicoulisc5a9967b_userpool_c5a9967b"
+      },
+      "lastPushDirHash": "DkXG+UuOaTejDOaWeipCM5d+Ezk="
+    }
+  },
+  "function": {},
+  "storage": {
+    "images": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "lastPushTimeStamp": "2025-07-04T17:31:57.729Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-machicoulis-machicouli-7d6ba-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storageimages"
+      },
+      "output": {
+        "BucketName": "machicoulisbfb421939b4a49bd89baef4eda185a1c7d6ba-machicouli",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "5h7MqXliakE8lLWw8PvOcmSWAX0="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-machicoulis-machicouli-7d6ba-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2025-07-04T17:31:57.738Z",
+      "output": {},
+      "lastPushDirHash": "Jn5voaigubn/CmQMb/zPYYboFco="
+    },
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-machicoulis-machicouli-7d6ba-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushTimeStamp": "2025-07-04T17:31:58.481Z",
+      "output": {
+        "CloudFrontSecureURL": "https://dw3nw1iq6wxe3.cloudfront.net",
+        "S3BucketSecureURL": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.amazonaws.com",
+        "CloudFrontOriginAccessIdentity": "ENEWH3X9FZDJL",
+        "WebsiteURL": "http://machicoulis-20250704132620-hostingbucket-machicouli.s3-website-us-east-1.amazonaws.com",
+        "CloudFrontDistributionID": "E3NCTV3NOATO8R",
+        "Region": "us-east-1",
+        "HostingBucketName": "machicoulis-20250704132620-hostingbucket-machicouli",
+        "CloudFrontDomainName": "dw3nw1iq6wxe3.cloudfront.net"
+      },
+      "lastPushDirHash": "6qxaXzEwGUVV0yWAWKMy0wXmdB4="
+    }
+  }
+}

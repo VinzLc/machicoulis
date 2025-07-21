@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "machicoulis",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authmachicoulisc5a9967b",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "amplify-machicoulis-machicouli-7d6ba-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/b5b6cb9911d25b816cfcdeb929de487fac5134a9"
+}

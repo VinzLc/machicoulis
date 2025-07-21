@@ -1,0 +1,47 @@
+type User @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  username: String!
+  email: String!
+  totalImages: Int
+  lastClaimDate: String
+  streakCount: Int
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  collection: [CollectionItem] @hasMany(indexName: "byUser", fields: ["id"])
+}
+
+type CollectionItem @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  userID: ID! @index(name: "byUser")
+  imageID: String!
+  imageName: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  dateObtained: AWSDateTime!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  user: User @belongsTo(fields: ["userID"])
+}
+
+type ImageTemplate @model @auth(rules: [{ allow: public, operations: [read] }]) {
+  id: ID!
+  name: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  isActive: Boolean
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type DailyClaim @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  userID: ID! @index(name: "byUser")
+  claimDate: String!
+  imageID: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}

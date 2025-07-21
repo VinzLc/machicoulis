@@ -1,0 +1,546 @@
+type User @aws_cognito_user_pools {
+  id: ID!
+  username: String!
+  email: String!
+  totalImages: Int
+  lastClaimDate: String
+  streakCount: Int
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  collection(filter: ModelCollectionItemFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCollectionItemConnection
+  owner: String
+}
+
+type CollectionItem @aws_cognito_user_pools {
+  id: ID!
+  userID: ID!
+  imageID: String!
+  imageName: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  dateObtained: AWSDateTime!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  user: User
+  owner: String
+}
+
+type ImageTemplate {
+  id: ID!
+  name: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  isActive: Boolean
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type DailyClaim @aws_cognito_user_pools {
+  id: ID!
+  userID: ID!
+  claimDate: String!
+  imageID: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  owner: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection @aws_cognito_user_pools {
+  items: [User]!
+  nextToken: String
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  username: ModelStringInput
+  email: ModelStringInput
+  totalImages: ModelIntInput
+  lastClaimDate: ModelStringInput
+  streakCount: ModelIntInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+  owner: ModelStringInput
+}
+
+type Query {
+  getImageTemplate(id: ID!): ImageTemplate
+  listImageTemplates(filter: ModelImageTemplateFilterInput, limit: Int, nextToken: String): ModelImageTemplateConnection
+  getUser(id: ID!): User @aws_cognito_user_pools
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_cognito_user_pools
+  getCollectionItem(id: ID!): CollectionItem @aws_cognito_user_pools
+  listCollectionItems(filter: ModelCollectionItemFilterInput, limit: Int, nextToken: String): ModelCollectionItemConnection @aws_cognito_user_pools
+  collectionItemsByUserID(userID: ID!, sortDirection: ModelSortDirection, filter: ModelCollectionItemFilterInput, limit: Int, nextToken: String): ModelCollectionItemConnection @aws_cognito_user_pools
+  getDailyClaim(id: ID!): DailyClaim @aws_cognito_user_pools
+  listDailyClaims(filter: ModelDailyClaimFilterInput, limit: Int, nextToken: String): ModelDailyClaimConnection @aws_cognito_user_pools
+  dailyClaimsByUserID(userID: ID!, sortDirection: ModelSortDirection, filter: ModelDailyClaimFilterInput, limit: Int, nextToken: String): ModelDailyClaimConnection @aws_cognito_user_pools
+}
+
+input ModelUserConditionInput {
+  username: ModelStringInput
+  email: ModelStringInput
+  totalImages: ModelIntInput
+  lastClaimDate: ModelStringInput
+  streakCount: ModelIntInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+  owner: ModelStringInput
+}
+
+input CreateUserInput {
+  id: ID
+  username: String!
+  email: String!
+  totalImages: Int
+  lastClaimDate: String
+  streakCount: Int
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input UpdateUserInput {
+  id: ID!
+  username: String
+  email: String
+  totalImages: Int
+  lastClaimDate: String
+  streakCount: Int
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input DeleteUserInput {
+  id: ID!
+}
+
+type Mutation {
+  createImageTemplate(input: CreateImageTemplateInput!, condition: ModelImageTemplateConditionInput): ImageTemplate
+  updateImageTemplate(input: UpdateImageTemplateInput!, condition: ModelImageTemplateConditionInput): ImageTemplate
+  deleteImageTemplate(input: DeleteImageTemplateInput!, condition: ModelImageTemplateConditionInput): ImageTemplate
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
+  createCollectionItem(input: CreateCollectionItemInput!, condition: ModelCollectionItemConditionInput): CollectionItem @aws_cognito_user_pools
+  updateCollectionItem(input: UpdateCollectionItemInput!, condition: ModelCollectionItemConditionInput): CollectionItem @aws_cognito_user_pools
+  deleteCollectionItem(input: DeleteCollectionItemInput!, condition: ModelCollectionItemConditionInput): CollectionItem @aws_cognito_user_pools
+  createDailyClaim(input: CreateDailyClaimInput!, condition: ModelDailyClaimConditionInput): DailyClaim @aws_cognito_user_pools
+  updateDailyClaim(input: UpdateDailyClaimInput!, condition: ModelDailyClaimConditionInput): DailyClaim @aws_cognito_user_pools
+  deleteDailyClaim(input: DeleteDailyClaimInput!, condition: ModelDailyClaimConditionInput): DailyClaim @aws_cognito_user_pools
+}
+
+input ModelSubscriptionUserFilterInput {
+  id: ModelSubscriptionIDInput
+  username: ModelSubscriptionStringInput
+  email: ModelSubscriptionStringInput
+  totalImages: ModelSubscriptionIntInput
+  lastClaimDate: ModelSubscriptionStringInput
+  streakCount: ModelSubscriptionIntInput
+  createdAt: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  and: [ModelSubscriptionUserFilterInput]
+  or: [ModelSubscriptionUserFilterInput]
+  owner: ModelStringInput
+}
+
+type Subscription {
+  onCreateImageTemplate(filter: ModelSubscriptionImageTemplateFilterInput): ImageTemplate @aws_subscribe(mutations: ["createImageTemplate"])
+  onUpdateImageTemplate(filter: ModelSubscriptionImageTemplateFilterInput): ImageTemplate @aws_subscribe(mutations: ["updateImageTemplate"])
+  onDeleteImageTemplate(filter: ModelSubscriptionImageTemplateFilterInput): ImageTemplate @aws_subscribe(mutations: ["deleteImageTemplate"])
+  onCreateUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_subscribe(mutations: ["createUser"]) @aws_cognito_user_pools
+  onUpdateUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_subscribe(mutations: ["updateUser"]) @aws_cognito_user_pools
+  onDeleteUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_subscribe(mutations: ["deleteUser"]) @aws_cognito_user_pools
+  onCreateCollectionItem(filter: ModelSubscriptionCollectionItemFilterInput, owner: String): CollectionItem @aws_subscribe(mutations: ["createCollectionItem"]) @aws_cognito_user_pools
+  onUpdateCollectionItem(filter: ModelSubscriptionCollectionItemFilterInput, owner: String): CollectionItem @aws_subscribe(mutations: ["updateCollectionItem"]) @aws_cognito_user_pools
+  onDeleteCollectionItem(filter: ModelSubscriptionCollectionItemFilterInput, owner: String): CollectionItem @aws_subscribe(mutations: ["deleteCollectionItem"]) @aws_cognito_user_pools
+  onCreateDailyClaim(filter: ModelSubscriptionDailyClaimFilterInput, owner: String): DailyClaim @aws_subscribe(mutations: ["createDailyClaim"]) @aws_cognito_user_pools
+  onUpdateDailyClaim(filter: ModelSubscriptionDailyClaimFilterInput, owner: String): DailyClaim @aws_subscribe(mutations: ["updateDailyClaim"]) @aws_cognito_user_pools
+  onDeleteDailyClaim(filter: ModelSubscriptionDailyClaimFilterInput, owner: String): DailyClaim @aws_subscribe(mutations: ["deleteDailyClaim"]) @aws_cognito_user_pools
+}
+
+type ModelCollectionItemConnection @aws_cognito_user_pools {
+  items: [CollectionItem]!
+  nextToken: String
+}
+
+input ModelCollectionItemFilterInput {
+  id: ModelIDInput
+  userID: ModelIDInput
+  imageID: ModelStringInput
+  imageName: ModelStringInput
+  rarity: ModelStringInput
+  category: ModelStringInput
+  description: ModelStringInput
+  imageUrl: ModelStringInput
+  dateObtained: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelCollectionItemFilterInput]
+  or: [ModelCollectionItemFilterInput]
+  not: ModelCollectionItemFilterInput
+  owner: ModelStringInput
+}
+
+input ModelCollectionItemConditionInput {
+  userID: ModelIDInput
+  imageID: ModelStringInput
+  imageName: ModelStringInput
+  rarity: ModelStringInput
+  category: ModelStringInput
+  description: ModelStringInput
+  imageUrl: ModelStringInput
+  dateObtained: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelCollectionItemConditionInput]
+  or: [ModelCollectionItemConditionInput]
+  not: ModelCollectionItemConditionInput
+  owner: ModelStringInput
+}
+
+input CreateCollectionItemInput {
+  id: ID
+  userID: ID!
+  imageID: String!
+  imageName: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  dateObtained: AWSDateTime!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input UpdateCollectionItemInput {
+  id: ID!
+  userID: ID
+  imageID: String
+  imageName: String
+  rarity: String
+  category: String
+  description: String
+  imageUrl: String
+  dateObtained: AWSDateTime
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input DeleteCollectionItemInput {
+  id: ID!
+}
+
+input ModelSubscriptionCollectionItemFilterInput {
+  id: ModelSubscriptionIDInput
+  userID: ModelSubscriptionIDInput
+  imageID: ModelSubscriptionStringInput
+  imageName: ModelSubscriptionStringInput
+  rarity: ModelSubscriptionStringInput
+  category: ModelSubscriptionStringInput
+  description: ModelSubscriptionStringInput
+  imageUrl: ModelSubscriptionStringInput
+  dateObtained: ModelSubscriptionStringInput
+  createdAt: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  and: [ModelSubscriptionCollectionItemFilterInput]
+  or: [ModelSubscriptionCollectionItemFilterInput]
+  owner: ModelStringInput
+}
+
+type ModelImageTemplateConnection {
+  items: [ImageTemplate]!
+  nextToken: String
+}
+
+input ModelImageTemplateFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  rarity: ModelStringInput
+  category: ModelStringInput
+  description: ModelStringInput
+  imageUrl: ModelStringInput
+  isActive: ModelBooleanInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelImageTemplateFilterInput]
+  or: [ModelImageTemplateFilterInput]
+  not: ModelImageTemplateFilterInput
+}
+
+input ModelImageTemplateConditionInput {
+  name: ModelStringInput
+  rarity: ModelStringInput
+  category: ModelStringInput
+  description: ModelStringInput
+  imageUrl: ModelStringInput
+  isActive: ModelBooleanInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelImageTemplateConditionInput]
+  or: [ModelImageTemplateConditionInput]
+  not: ModelImageTemplateConditionInput
+}
+
+input CreateImageTemplateInput {
+  id: ID
+  name: String!
+  rarity: String!
+  category: String!
+  description: String!
+  imageUrl: String!
+  isActive: Boolean
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input UpdateImageTemplateInput {
+  id: ID!
+  name: String
+  rarity: String
+  category: String
+  description: String
+  imageUrl: String
+  isActive: Boolean
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input DeleteImageTemplateInput {
+  id: ID!
+}
+
+input ModelSubscriptionImageTemplateFilterInput {
+  id: ModelSubscriptionIDInput
+  name: ModelSubscriptionStringInput
+  rarity: ModelSubscriptionStringInput
+  category: ModelSubscriptionStringInput
+  description: ModelSubscriptionStringInput
+  imageUrl: ModelSubscriptionStringInput
+  isActive: ModelSubscriptionBooleanInput
+  createdAt: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  and: [ModelSubscriptionImageTemplateFilterInput]
+  or: [ModelSubscriptionImageTemplateFilterInput]
+}
+
+type ModelDailyClaimConnection @aws_cognito_user_pools {
+  items: [DailyClaim]!
+  nextToken: String
+}
+
+input ModelDailyClaimFilterInput {
+  id: ModelIDInput
+  userID: ModelIDInput
+  claimDate: ModelStringInput
+  imageID: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelDailyClaimFilterInput]
+  or: [ModelDailyClaimFilterInput]
+  not: ModelDailyClaimFilterInput
+  owner: ModelStringInput
+}
+
+input ModelDailyClaimConditionInput {
+  userID: ModelIDInput
+  claimDate: ModelStringInput
+  imageID: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelDailyClaimConditionInput]
+  or: [ModelDailyClaimConditionInput]
+  not: ModelDailyClaimConditionInput
+  owner: ModelStringInput
+}
+
+input CreateDailyClaimInput {
+  id: ID
+  userID: ID!
+  claimDate: String!
+  imageID: String!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input UpdateDailyClaimInput {
+  id: ID!
+  userID: ID
+  claimDate: String
+  imageID: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input DeleteDailyClaimInput {
+  id: ID!
+}
+
+input ModelSubscriptionDailyClaimFilterInput {
+  id: ModelSubscriptionIDInput
+  userID: ModelSubscriptionIDInput
+  claimDate: ModelSubscriptionStringInput
+  imageID: ModelSubscriptionStringInput
+  createdAt: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  and: [ModelSubscriptionDailyClaimFilterInput]
+  or: [ModelSubscriptionDailyClaimFilterInput]
+  owner: ModelStringInput
+}

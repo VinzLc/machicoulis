@@ -42,27 +42,27 @@
     },
     {
       "id": 6,
-      "name": "Smusse Formenteur",
+      "name": "Smusse Fomenteur",
       "rarity": "Common",
       "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/smusse-cache-1.png",
       "description": "Smusse se cache... mais où ?",
-      "category": "Smusse Formenteur"
+      "category": "Smusse Fomenteur"
     },
     {
       "id": 7,
-      "name": "Smusse Formenteur - Evolved",
+      "name": "Smusse Fomenteur - Evolved",
       "rarity": "Rare",
       "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/smusse-cache-2.png",
       "description": "Smusse continue sa cachette",
-      "category": "Smusse Formenteur"
+      "category": "Smusse Fomenteur"
     },
     {
       "id": 8,
-      "name": "Smusse Formenteur - Maxi Machicoulis",
+      "name": "Smusse Fomenteur - Maxi Machicoulis",
       "rarity": "Epic",
       "url": "https://machicoulis-20250704132620-hostingbucket-machicouli.s3.us-east-1.amazonaws.com/common/smusse-cache-3.png",
       "description": "La suite des aventures cachées de Smusse",
-      "category": "Smusse Formenteur"
+      "category": "Smusse Fomenteur"
     },
     {
       "id": 9,
